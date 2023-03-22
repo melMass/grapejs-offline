@@ -1,0 +1,60 @@
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
+        node-version: [16.x]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: ♻️ Cloning repository
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Installing PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: 📦 Install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-20.04'
+        # You can add libayatana-appindicator3-dev if you use the system tray feature.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev librsvg2-dev
+
+      - name: 🦀 Rust setup
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 🦀 Rust cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
+
+      - name: 📦 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm' 
+
+      - name: 📦 Install app dependencies and build web
+        # Remove `&& yarn build` if you build your frontend in `beforeBuildCommand`
+        run: pnpm install # Change this to npm, yarn or pnpm.
+
+      - name: 📦 Build the app
+        uses: tauri-apps/tauri-action@v0
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: grapejs-offline-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: 'GrapeJS Offline v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
+          releaseBody: 'See the assets to download and install this version.'
+          releaseDraft: true
+          prerelease: false

@@ -1,0 +1,90 @@
+body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+}
+
+html {
+  height: 100%;
+  max-height: 100vh;
+}
+
+
+.gjs-pn-panel.gjs-pn-devices-c.gjs-one-bg.gjs-two-color {
+  /* background-color: purple; */
+  margin-left: 120px
+}
+
+/*Inspector Panel Frame*/
+.gjs-pn-panel.gjs-pn-views-container.gjs-one-bg.gjs-two-color {
+  /* background-color: goldenrod; */
+  font-family: "Akkurat";
+}
+
+.gjs-layer-title {
+  letter-spacing: 0;
+}
+
+.gjs-block-label {
+  font-size: 8px;
+}
+
+.gjs-block {
+  max-height: 90px;
+  max-width: 69px;
+  font-size: 10px;
+}
+
+.gjs-block__media {
+  margin-bottom: 0;
+}
+
+.gjs-cv-canvas {
+  /* width: 70%; */
+  /* top: 24px; */
+  /* because padding */
+  top: 36px;
+}
+
+.gjs-sm-sector-title {
+  letter-spacing: 0;
+}
+
+
+.gjs-pn-btn {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.gjs-pn-views-container {
+  background-color: transparent !important;
+}
+
+.gjs-pn-buttons {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 
+.gjs-pn-panel {
+  padding: 0;
+} */
+
+.gjs-pn-views {
+  height: 35px;
+}
+
+.test {
+  --primaryColor: #373d49;
+  --secondaryColor: #dae5e6;
+  --tertiaryColor: #4c9790;
+  --quaternaryColor: #35d7bb;
+}
+
+.test {
+  --primaryColor: #3d3d3e;
+  --secondaryColor: #4863c3;
+  --tertiaryColor: #3477b5;
+  --quaternaryColor: #3ec8e8;
+}

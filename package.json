@@ -1,0 +1,36 @@
+{
+  "name": "grape-offline",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.2.0",
+    "backbone": "^1.4.1",
+    "chart.js": "^4.2.1",
+    "colorthief": "github:lokesh/color-thief",
+    "grapesjs": "^0.20.4",
+    "grapick": "^0.1.13",
+    "juice": "^8.1.0",
+    "lit-html": "^2.6.1",
+    "postcss": "^8.4.21",
+    "preact": "^10.13.0",
+    "ress": "^5.0.2",
+    "split.js": "^1.6.5",
+    "swiper": "^9.1.0",
+    "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql",
+    "underscore": "^1.13.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@preact/preset-vite": "^2.5.0",
+    "@tauri-apps/cli": "^1.2.3",
+    "@types/underscore": "^1.11.4",
+    "vite": "^4.1.4"
+  }
+}

@@ -1,6 +1,6 @@
 [package]
 name = "grape-offline"
-version = "0.3.0"
+version = "0.4.0"
 description = "GrapeJS for Desktop"
 authors = ["melMass <mel@melmassadian.com>"]
 license = "MIT"

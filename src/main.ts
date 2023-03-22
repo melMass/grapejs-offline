@@ -10,6 +10,7 @@ import custom_code from "./plugins/custom_code"
 import tauri_glue from "./plugins/tauri_glue";
 import tabs from "./plugins/tabs";
 import preset_mtb from "./plugins/preset-mtb";
+import template from "./default.html?raw"
 // import { fontsDialogPlugin } from "./plugins/fonts/fonts";
 // import swiper from "./plugins/swiper"
 // import charts from "./plugins/charts"
@@ -17,7 +18,7 @@ import preset_mtb from "./plugins/preset-mtb";
 import "./app.css";
 const editor = grapesjs.init({
     container: "#gjs",
-    components: '<div class="txt-red">Hello world!</div>',
+    components: template,
     style: ".txt-red{color: red; font-family:Akkurat; font-size:10em}",
     // Disable the storage manager for the moment 
     storageManager: true,
